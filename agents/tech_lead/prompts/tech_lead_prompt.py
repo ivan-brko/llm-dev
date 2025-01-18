@@ -31,18 +31,22 @@ This is the epic you need to split into tickets:
 from typing import List
 from pydantic import BaseModel
 
+
 class RelevantDatabaseChange(BaseModel):
     table_name: str
     description: str
     table_schema_changes: str
 
+
 class TicketStep(BaseModel):
     description: str
+
 
 class Ticket(BaseModel):
     name: str
     ticket_steps: List[TicketStep]
     relevant_database_changes: List[RelevantDatabaseChange]
+
 
 class TicketList(BaseModel):
     tickets: List[Ticket]
